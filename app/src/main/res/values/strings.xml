@@ -34,5 +34,5 @@
     <string name="overview">Overview</string>
     <string name="average">7.8</string>
     <string name="like">Like</string>
-    <string name="unlike">Unlike</string>
+    <string name="liked">Liked</string>
 </resources>
