@@ -14,7 +14,7 @@ public class TvHelper {
     private static final String DATABASE_TABLE = TABLE_NAME_TV;
 
     private final Context context;
-    private DatabaseMovieHelper databaseHelper;
+    private DatabaseTvHelper databaseHelper;
     private SQLiteDatabase database;
 
     public TvHelper(Context context) {
@@ -22,7 +22,7 @@ public class TvHelper {
     }
 
     public void open() throws SQLException {
-        databaseHelper=new DatabaseMovieHelper(context);
+        databaseHelper=new DatabaseTvHelper(context);
         database=databaseHelper.getWritableDatabase();
     }
 
