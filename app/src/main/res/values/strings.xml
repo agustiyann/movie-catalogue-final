@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">MovieCatalogueDB</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="title_movie">Movies</string>
+    <string name="title_tvshows">TV Shows</string>
+    <string name="title_favorite">Favorite</string>
+
+    <string name="movie_name">Movie Name</string>
+    <string name="release">Release</string>
+    <string name="description">This is description</string>
+    <string name="tab_movie">Movie</string>
+    <string name="tab_tvshow">TV Show</string>
+    <string name="poster_image">This is poster image</string>
+    <string name="movieapi">MovieAPI</string>
+    <string name="change_language_settings">Change language</string>
+    <string name="most_popular_movies">Most Popular Movies</string>
+    <string name="upcoming_movies">Upcoming Movies</string>
+    <string name="airing_tv">TV Shows Airing Today</string>
+    <string name="desc_tvairing" translatable="false">This is image tv airing today</string>
+    <string name="popular_tv_shows" translatable="false">Popular TV Shows</string>
+    <string name="backdrop_image">this is backdrop image</string>
+    <string name="_70" translatable="false">70%</string>
+    <string name="start_popularity">Start popularity</string>
+    <string name="chart">Chart</string>
+    <string name="popularity">111.111</string>
+    <string name="desc">This is image</string>
+    <string name="todo">this image</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias beatae corporis delectus deleniti dolor eaque et exercitationem expedita, labore molestiae qui quibusdam saepe suscipit vel. Nam reprehenderit totam veniam!</string>
+    <string name="original_title">Original title</string>
+    <string name="original_language">en</string>
+    <string name="overview">Overview</string>
+    <string name="average">7.8</string>
+    <string name="like">Like</string>
+    <string name="unlike">Unlike</string>
+</resources>
