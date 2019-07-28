@@ -30,6 +30,27 @@ public class DatabaseContract {
                 .build();
     }
 
+    public static final class TvShowColumns implements BaseColumns {
+
+        public static final String TABLE_NAME_TV = "favoritetv";
+
+        public static final String KEY_ID_TV = "_id";
+        public static final String POSTER_TV = "poster";
+        public static final String TITLE_TV = "title";
+        public static final String RELEASE_DATE_TV = "date";
+        public static final String VOTE_TV = "voteaverage";
+        public static final String POPULARITY_TV = "popularity";
+        public static final String ORIGINAL_LANGUAGE_TV = "language";
+        public static final String ORIGINAL_TITLE_TV = "originaltitle";
+        public static final String OVERVIEW_TV = "overview";
+        public static final String BLUR_IMAGE_TV = "blur";
+
+        public static final Uri CONTENT_URI_TV = new Uri.Builder().scheme(SCHEME)
+                .authority(AUTHORITY)
+                .appendPath(TABLE_NAME_TV)
+                .build();
+    }
+
     public static String getColumnString(Cursor cursor, String columnName) {
         return cursor.getString( cursor.getColumnIndex(columnName) );
     }
