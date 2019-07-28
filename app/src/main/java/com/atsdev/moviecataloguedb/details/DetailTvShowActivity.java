@@ -9,39 +9,39 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.atsdev.moviecataloguedb.R;
-import com.atsdev.moviecataloguedb.database.MovieHelper;
-import com.atsdev.moviecataloguedb.models.MovieItem;
+import com.atsdev.moviecataloguedb.database.TvHelper;
+import com.atsdev.moviecataloguedb.models.TvShowItem;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
 import jp.wasabeef.glide.transformations.BlurTransformation;
 
-import static com.atsdev.moviecataloguedb.database.DatabaseContract.MovieColumns.BLUR_IMAGE;
-import static com.atsdev.moviecataloguedb.database.DatabaseContract.MovieColumns.CONTENT_URI;
-import static com.atsdev.moviecataloguedb.database.DatabaseContract.MovieColumns.KEY_ID;
-import static com.atsdev.moviecataloguedb.database.DatabaseContract.MovieColumns.ORIGINAL_LANGUAGE;
-import static com.atsdev.moviecataloguedb.database.DatabaseContract.MovieColumns.ORIGINAL_TITLE;
-import static com.atsdev.moviecataloguedb.database.DatabaseContract.MovieColumns.OVERVIEW;
-import static com.atsdev.moviecataloguedb.database.DatabaseContract.MovieColumns.POPULARITY;
-import static com.atsdev.moviecataloguedb.database.DatabaseContract.MovieColumns.POSTER;
-import static com.atsdev.moviecataloguedb.database.DatabaseContract.MovieColumns.RELEASE_DATE;
-import static com.atsdev.moviecataloguedb.database.DatabaseContract.MovieColumns.TITLE;
-import static com.atsdev.moviecataloguedb.database.DatabaseContract.MovieColumns.VOTE;
+import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.BLUR_IMAGE_TV;
+import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.CONTENT_URI_TV;
+import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.KEY_ID_TV;
+import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.ORIGINAL_LANGUAGE_TV;
+import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.ORIGINAL_TITLE_TV;
+import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.OVERVIEW_TV;
+import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.POPULARITY_TV;
+import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.POSTER_TV;
+import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.RELEASE_DATE_TV;
+import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.TITLE_TV;
+import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.VOTE_TV;
 
-public class DetailMovieActivity extends AppCompatActivity {
+public class DetailTvShowActivity extends AppCompatActivity {
 
-    public static final String EXTRA_MOVIE = "movie";
+    public static final String EXTRA_TVSHOW = "tvshow";
     private Boolean isFavorite = false;
 
     private TextView like;
     private ImageView btnLike;
 
-    private MovieHelper movieHelper;
+    private TvHelper tvHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_movie);
+        setContentView(R.layout.activity_detail_tv_show);
 
         ImageView blurImage = findViewById(R.id.blur_image);
         ImageView poster = findViewById(R.id.poster_image);
@@ -56,11 +56,11 @@ public class DetailMovieActivity extends AppCompatActivity {
         like = findViewById(R.id.tv_like);
         btnLike = findViewById(R.id.btn_like);
 
-        MovieItem item = getIntent().getParcelableExtra(EXTRA_MOVIE);
+        TvShowItem item = getIntent().getParcelableExtra(EXTRA_TVSHOW);
 
-        title.setText(item.getTitle());
-        release.setText(item.getRelease());
-        originalTitle.setText(item.getOriginalTitle());
+        title.setText(item.getName());
+        release.setText(item.getFirstAirDate());
+        originalTitle.setText(item.getOriginalName());
         originalLanguage.setText(item.getOriginalLanguage());
         voteAverage.setText(item.getVoteAverage());
         popularity.setText(item.getPopularity());
@@ -86,8 +86,8 @@ public class DetailMovieActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (movieHelper != null)
-            movieHelper.close();
+        if (tvHelper != null)
+            tvHelper.close();
     }
 
     private void setFavorite(){
@@ -102,11 +102,11 @@ public class DetailMovieActivity extends AppCompatActivity {
     }
 
     private void loadDataSQLite(){
-        MovieItem Isi = getIntent().getParcelableExtra("movie");
-        movieHelper = new MovieHelper(this);
-        movieHelper.open();
+        TvShowItem Isi = getIntent().getParcelableExtra("tvshow");
+        tvHelper = new TvHelper(this);
+        tvHelper.open();
 
-        Cursor cursor = getContentResolver().query(Uri.parse(CONTENT_URI + "/" + Isi.getId()),null,
+        Cursor cursor = getContentResolver().query(Uri.parse(CONTENT_URI_TV + "/" + Isi.getId()),null,
                 null,
                 null,
                 null);
@@ -119,24 +119,24 @@ public class DetailMovieActivity extends AppCompatActivity {
     }
 
     private void FavoriteSave(){
-        MovieItem Isi = getIntent().getParcelableExtra("movie");
+        TvShowItem Isi = getIntent().getParcelableExtra("tvshow");
         ContentValues values = new ContentValues();
-        values.put(KEY_ID,Isi.getId());
-        values.put(TITLE,Isi.getTitle());
-        values.put(POSTER,Isi.getPoster());
-        values.put(BLUR_IMAGE,Isi.getPoster());
-        values.put(OVERVIEW,Isi.getOverview());
-        values.put(POPULARITY,Isi.getPopularity());
-        values.put(ORIGINAL_LANGUAGE,Isi.getOriginalLanguage());
-        values.put(ORIGINAL_TITLE,Isi.getOriginalTitle());
-        values.put(VOTE,Isi.getVoteAverage());
-        values.put(RELEASE_DATE,Isi.getRelease());
-        getContentResolver().insert(CONTENT_URI,values);
+        values.put(KEY_ID_TV,Isi.getId());
+        values.put(TITLE_TV,Isi.getName());
+        values.put(POSTER_TV,Isi.getPoster());
+        values.put(BLUR_IMAGE_TV,Isi.getPoster());
+        values.put(OVERVIEW_TV,Isi.getOverview());
+        values.put(POPULARITY_TV,Isi.getPopularity());
+        values.put(ORIGINAL_LANGUAGE_TV,Isi.getOriginalLanguage());
+        values.put(ORIGINAL_TITLE_TV,Isi.getOriginalName());
+        values.put(VOTE_TV,Isi.getVoteAverage());
+        values.put(RELEASE_DATE_TV,Isi.getFirstAirDate());
+        getContentResolver().insert(CONTENT_URI_TV,values);
     }
 
     private void FavoriteRemove(){
-        MovieItem Isi = getIntent().getParcelableExtra("movie");
-        getContentResolver().delete(Uri.parse(CONTENT_URI + "/" + Isi.getId() ),null,
+        TvShowItem Isi = getIntent().getParcelableExtra("tvshow");
+        getContentResolver().delete(Uri.parse(CONTENT_URI_TV + "/" + Isi.getId() ),null,
                 null);
     }
 }

@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 
 import com.atsdev.moviecataloguedb.R;
 import com.atsdev.moviecataloguedb.fragments.favorite.MovieFavoriteFragment;
-import com.atsdev.moviecataloguedb.fragments.favorite.TvShowFavoriteFagment;
+import com.atsdev.moviecataloguedb.fragments.favorite.TvShowFavoriteFragment;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -82,7 +82,7 @@ public class FavoriteFragment extends Fragment {
                     return new MovieFavoriteFragment();
 
                 case 1:
-                    return new TvShowFavoriteFagment();
+                    return new TvShowFavoriteFragment();
 
                 default:
                     return null;

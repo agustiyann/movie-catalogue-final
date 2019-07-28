@@ -14,10 +14,10 @@ import org.jetbrains.annotations.NotNull;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TvShowFavoriteFagment extends Fragment {
+public class TvShowFavoriteFragment extends Fragment {
 
 
-    public TvShowFavoriteFagment() {
+    public TvShowFavoriteFragment() {
         // Required empty public constructor
     }
 
@@ -26,7 +26,7 @@ public class TvShowFavoriteFagment extends Fragment {
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tv_show_favorite_fagment, container, false);
+        return inflater.inflate(R.layout.fragment_tv_show_favorite, container, false);
     }
 
 }
