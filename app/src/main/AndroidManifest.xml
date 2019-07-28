@@ -28,6 +28,13 @@
             android:readPermission="com.atsdev.moviecataloguedb.READ_DATABASE"
             android:writePermission="com.atsdev.moviecataloguedb.WRITE_DATABASE" />
 
+        <provider
+            android:name=".provider.TvShowProfider"
+            android:authorities="com.atsdev.moviecataloguedb"
+            android:exported="true"
+            android:readPermission="com.atsdev.moviecataloguedb.READ_DATABASE"
+            android:writePermission="com.atsdev.moviecataloguedb.WRITE_DATABASE" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

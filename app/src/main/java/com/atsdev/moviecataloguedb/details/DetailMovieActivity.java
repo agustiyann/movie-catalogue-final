@@ -102,11 +102,11 @@ public class DetailMovieActivity extends AppCompatActivity {
     }
 
     private void loadDataSQLite(){
-        MovieItem Isi = getIntent().getParcelableExtra("movie");
+        MovieItem movie = getIntent().getParcelableExtra("movie");
         movieHelper = new MovieHelper(this);
         movieHelper.open();
 
-        Cursor cursor = getContentResolver().query(Uri.parse(CONTENT_URI + "/" + Isi.getId()),null,
+        Cursor cursor = getContentResolver().query(Uri.parse(CONTENT_URI + "/" + movie.getId()),null,
                 null,
                 null,
                 null);
@@ -119,24 +119,24 @@ public class DetailMovieActivity extends AppCompatActivity {
     }
 
     private void FavoriteSave(){
-        MovieItem Isi = getIntent().getParcelableExtra("movie");
+        MovieItem movie = getIntent().getParcelableExtra("movie");
         ContentValues values = new ContentValues();
-        values.put(KEY_ID,Isi.getId());
-        values.put(TITLE,Isi.getTitle());
-        values.put(POSTER,Isi.getPoster());
-        values.put(BLUR_IMAGE,Isi.getPoster());
-        values.put(OVERVIEW,Isi.getOverview());
-        values.put(POPULARITY,Isi.getPopularity());
-        values.put(ORIGINAL_LANGUAGE,Isi.getOriginalLanguage());
-        values.put(ORIGINAL_TITLE,Isi.getOriginalTitle());
-        values.put(VOTE,Isi.getVoteAverage());
-        values.put(RELEASE_DATE,Isi.getRelease());
-        getContentResolver().insert(CONTENT_URI,values);
+        values.put(KEY_ID, movie.getId());
+        values.put(TITLE, movie.getTitle());
+        values.put(POSTER, movie.getPoster());
+        values.put(BLUR_IMAGE, movie.getPoster());
+        values.put(OVERVIEW, movie.getOverview());
+        values.put(POPULARITY, movie.getPopularity());
+        values.put(ORIGINAL_LANGUAGE, movie.getOriginalLanguage());
+        values.put(ORIGINAL_TITLE, movie.getOriginalTitle());
+        values.put(VOTE, movie.getVoteAverage());
+        values.put(RELEASE_DATE, movie.getRelease());
+        getContentResolver().insert(CONTENT_URI, values);
     }
 
     private void FavoriteRemove(){
-        MovieItem Isi = getIntent().getParcelableExtra("movie");
-        getContentResolver().delete(Uri.parse(CONTENT_URI + "/" + Isi.getId() ),null,
+        MovieItem movie = getIntent().getParcelableExtra("movie");
+        getContentResolver().delete(Uri.parse(CONTENT_URI + "/" + movie.getId() ),null,
                 null);
     }
 }

@@ -121,17 +121,17 @@ public class DetailTvShowActivity extends AppCompatActivity {
     private void FavoriteSave(){
         TvShowItem Isi = getIntent().getParcelableExtra("tvshow");
         ContentValues values = new ContentValues();
-        values.put(KEY_ID_TV,Isi.getId());
-        values.put(TITLE_TV,Isi.getName());
-        values.put(POSTER_TV,Isi.getPoster());
-        values.put(BLUR_IMAGE_TV,Isi.getPoster());
-        values.put(OVERVIEW_TV,Isi.getOverview());
-        values.put(POPULARITY_TV,Isi.getPopularity());
-        values.put(ORIGINAL_LANGUAGE_TV,Isi.getOriginalLanguage());
-        values.put(ORIGINAL_TITLE_TV,Isi.getOriginalName());
-        values.put(VOTE_TV,Isi.getVoteAverage());
-        values.put(RELEASE_DATE_TV,Isi.getFirstAirDate());
-        getContentResolver().insert(CONTENT_URI_TV,values);
+        values.put(KEY_ID_TV, Isi.getId());
+        values.put(TITLE_TV, Isi.getName());
+        values.put(POSTER_TV, Isi.getPoster());
+        values.put(BLUR_IMAGE_TV, Isi.getPoster());
+        values.put(OVERVIEW_TV, Isi.getOverview());
+        values.put(POPULARITY_TV, Isi.getPopularity());
+        values.put(ORIGINAL_LANGUAGE_TV, Isi.getOriginalLanguage());
+        values.put(ORIGINAL_TITLE_TV, Isi.getOriginalName());
+        values.put(VOTE_TV, Isi.getVoteAverage());
+        values.put(RELEASE_DATE_TV, Isi.getFirstAirDate());
+        getContentResolver().insert(CONTENT_URI_TV, values);
     }
 
     private void FavoriteRemove(){
