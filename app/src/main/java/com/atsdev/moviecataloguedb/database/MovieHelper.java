@@ -11,9 +11,9 @@ import static com.atsdev.moviecataloguedb.database.DatabaseContract.MovieColumns
 
 public class MovieHelper {
 
-    private static String DATABASE_TABLE = TABLE_NAME;
+    private static final String DATABASE_TABLE = TABLE_NAME;
 
-    private Context context;
+    private final Context context;
     private DatabaseMovieHelper databaseHelper;
     private SQLiteDatabase database;
 
@@ -21,10 +21,9 @@ public class MovieHelper {
         this.context = context;
     }
 
-    public MovieHelper open() throws SQLException {
+    public void open() throws SQLException {
         databaseHelper=new DatabaseMovieHelper(context);
         database=databaseHelper.getWritableDatabase();
-        return this;
     }
 
     public void close(){databaseHelper.close();}

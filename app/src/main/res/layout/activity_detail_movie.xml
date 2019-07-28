@@ -53,7 +53,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:text="@string/title_tvshows"
+            android:text="@string/movie_name"
             android:textSize="25sp"
             android:textStyle="bold"
             android:textColor="@android:color/black"
@@ -86,7 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
             android:layout_marginEnd="16dp"
-            android:text="@string/title_tvshows"
+            android:text="@string/movie_name"
             android:textColor="@android:color/black"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -239,18 +239,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-        <!--<android.support.design.widget.FloatingActionButton-->
-            <!--android:id="@+id/favorite_button"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="8dp"-->
-            <!--android:layout_marginEnd="16dp"-->
-            <!--android:clickable="true"-->
-            <!--android:focusable="true"-->
-            <!--app:srcCompat="@drawable/ic_favorite_border_black_24dp"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintTop_toBottomOf="@+id/tv_description" />-->
 
     </android.support.constraint.ConstraintLayout>
 

@@ -19,7 +19,7 @@ import com.bumptech.glide.Glide;
 
 public class MovieFavoriteAdapter extends RecyclerView.Adapter<MovieFavoriteAdapter.CardViewViewHolder> {
 
-    private Context context;
+    private final Context context;
     private Cursor cursor;
 
     public MovieFavoriteAdapter(Context context) {

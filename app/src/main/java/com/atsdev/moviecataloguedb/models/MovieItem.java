@@ -5,6 +5,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
 
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 
 import static android.provider.BaseColumns._ID;
@@ -167,6 +168,7 @@ public class MovieItem implements Parcelable {
         }
     };
 
+    @NotNull
     @Override
     public String toString() {
         return "MovieItem{" +

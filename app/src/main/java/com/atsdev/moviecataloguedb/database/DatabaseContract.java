@@ -11,18 +11,18 @@ public class DatabaseContract {
 
     public static final class MovieColumns implements BaseColumns {
 
-        public static String TABLE_NAME = "favorite";
+        public static final String TABLE_NAME = "favorite";
 
-        public static String KEY_ID = "_id";
-        public static String POSTER = "poster";
-        public static String TITLE = "title";
-        public static String RELEASE_DATE = "date";
-        public static String VOTE = "voteaverage";
-        public static String POPULARITY = "popularity";
-        public static String ORIGINAL_LANGUAGE = "language";
-        public static String ORIGINAL_TITLE = "originaltitle";
-        public static String OVERVIEW = "overview";
-        public static String BLUR_IMAGE = "blur";
+        public static final String KEY_ID = "_id";
+        public static final String POSTER = "poster";
+        public static final String TITLE = "title";
+        public static final String RELEASE_DATE = "date";
+        public static final String VOTE = "voteaverage";
+        public static final String POPULARITY = "popularity";
+        public static final String ORIGINAL_LANGUAGE = "language";
+        public static final String ORIGINAL_TITLE = "originaltitle";
+        public static final String OVERVIEW = "overview";
+        public static final String BLUR_IMAGE = "blur";
 
         public static final Uri CONTENT_URI = new Uri.Builder().scheme(SCHEME)
                 .authority(AUTHORITY)

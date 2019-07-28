@@ -22,6 +22,8 @@ import com.atsdev.moviecataloguedb.details.DetailMovieActivity;
 import com.atsdev.moviecataloguedb.models.MovieItem;
 import com.atsdev.moviecataloguedb.viewmodels.MovieViewModel;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
 /**
@@ -39,7 +41,7 @@ public class MovieFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_movie, container, false);
@@ -48,7 +50,6 @@ public class MovieFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        MovieItem movieItem;
         MovieViewModel movieViewModel;
 
         rvMovie = view.findViewById(R.id.rv_movie);
