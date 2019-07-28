@@ -14,8 +14,8 @@ public class MovieHelper {
     private static String DATABASE_TABLE = TABLE_NAME;
 
     private Context context;
-    DatabaseMovieHelper databaseHelper;
-    SQLiteDatabase database;
+    private DatabaseMovieHelper databaseHelper;
+    private SQLiteDatabase database;
 
     public MovieHelper(Context context) {
         this.context = context;

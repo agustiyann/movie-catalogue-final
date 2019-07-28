@@ -7,7 +7,7 @@ import android.provider.BaseColumns;
 public class DatabaseContract {
 
     public static final String AUTHORITY = "com.atsdev.moviecataloguedb";
-    public static final String SCHEME = "content";
+    private static final String SCHEME = "content";
 
     public static final class MovieColumns implements BaseColumns {
 

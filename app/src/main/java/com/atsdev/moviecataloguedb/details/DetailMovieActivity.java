@@ -91,7 +91,7 @@ public class DetailMovieActivity extends AppCompatActivity {
             movieHelper.close();
     }
 
-    public void setFavorite(){
+    private void setFavorite(){
         if (isFavorite){
             btnLike.setImageResource(R.drawable.ic_favorite_black_24dp);
             like.setText(getString(R.string.liked));

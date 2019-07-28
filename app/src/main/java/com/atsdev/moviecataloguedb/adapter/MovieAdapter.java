@@ -48,7 +48,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         final TextView tvRelease;
         final TextView tvDescription;
 
-        public ViewHolder(@NonNull View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
             imgMovie = itemView.findViewById(R.id.img_item_photo);
             tvName = itemView.findViewById(R.id.tv_item_name);
@@ -56,7 +56,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
             tvDescription = itemView.findViewById(R.id.tv_description);
         }
 
-        public void bind(MovieItem movieItem) {
+        void bind(MovieItem movieItem) {
             tvName.setText(movieItem.getTitle());
             tvRelease.setText(movieItem.getRelease());
             tvDescription.setText(movieItem.getOverview());
