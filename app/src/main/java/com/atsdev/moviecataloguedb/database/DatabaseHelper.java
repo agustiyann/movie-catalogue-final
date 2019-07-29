@@ -28,7 +28,7 @@ import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumn
 import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.TITLE_TV;
 import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.VOTE_TV;
 
-class DatabaseMovieHelper extends SQLiteOpenHelper {
+class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "db.moviefavorite";
 
@@ -65,7 +65,7 @@ class DatabaseMovieHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_TV);
     }
 
-    public DatabaseMovieHelper(Context context) {
+    public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
