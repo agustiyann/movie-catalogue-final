@@ -34,9 +34,12 @@ public class FavoriteFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_favorite, container, false);
 
+        String movie = getResources().getString(R.string.tab_movie);
+        String tv_show = getResources().getString(R.string.tab_tvshow);
+
         TabLayout tabLayout = view.findViewById(R.id.tablayout_id);
-        tabLayout.addTab(tabLayout.newTab().setText("Movie"));
-        tabLayout.addTab(tabLayout.newTab().setText("Tv Show"));
+        tabLayout.addTab(tabLayout.newTab().setText(movie));
+        tabLayout.addTab(tabLayout.newTab().setText(tv_show));
 
         ViewPager viewPager = view.findViewById(R.id.viewpager_id);
 

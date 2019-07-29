@@ -1,18 +1,18 @@
 <resources>
     <string name="app_name">MovieCatalogueDB</string>
 
-    <string name="title_movie">Movies</string>
-    <string name="title_tvshows">TV Shows</string>
-    <string name="title_favorite">Favorite</string>
+    <string name="title_movie">Film</string>
+    <string name="title_tvshows">Acara TV</string>
+    <string name="title_favorite">Favorit</string>
 
     <string name="movie_name">Movie Name</string>
     <string name="release">Release</string>
     <string name="description">This is description</string>
-    <string name="tab_movie">Movie</string>
-    <string name="tab_tvshow">TV Show</string>
+    <string name="tab_movie">Film</string>
+    <string name="tab_tvshow">Acara TV</string>
     <string name="poster_image">This is poster image</string>
     <string name="movieapi">MovieAPI</string>
-    <string name="change_language_settings">Change language</string>
+    <string name="change_language_settings">Ubah Bahasa</string>
     <string name="most_popular_movies">Most Popular Movies</string>
     <string name="upcoming_movies">Upcoming Movies</string>
     <string name="airing_tv">TV Shows Airing Today</string>
@@ -26,10 +26,10 @@
     <string name="desc">This is image</string>
     <string name="todo">this image</string>
     <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias beatae corporis delectus deleniti dolor eaque et exercitationem expedita, labore molestiae qui quibusdam saepe suscipit vel. Nam reprehenderit totam veniam!</string>
-    <string name="original_title">Original title</string>
+    <string name="original_title">Judul asli</string>
     <string name="original_language">en</string>
-    <string name="overview">Overview</string>
+    <string name="overview">Intisari</string>
     <string name="average">7.8</string>
-    <string name="like">Like</string>
-    <string name="liked">Liked</string>
+    <string name="like">Suka</string>
+    <string name="liked">Disukai</string>
 </resources>
