@@ -93,14 +93,6 @@ public class TvShowFavoriteFragment extends Fragment {
             tvShowFavoriteAdapter.setCursor(cursor);
             tvShowFavoriteAdapter.notifyDataSetChanged();
 
-            if (cursor != null){
-                if (cursor.getCount() == 0) {
-                    Snackbar snackbar = Snackbar.make(Objects.requireNonNull(getActivity()).findViewById(android.R.id.content),
-                            "No Tv Show liked", Snackbar.LENGTH_SHORT);
-                    snackbar.show();
-                }
-            }
-
         }
 
     }

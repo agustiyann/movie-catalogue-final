@@ -93,14 +93,6 @@ public class MovieFavoriteFragment extends Fragment {
             movieFavoriteAdapter.setCursor(cursor);
             movieFavoriteAdapter.notifyDataSetChanged();
 
-            if (cursor != null){
-                if (cursor.getCount() == 0) {
-                    Snackbar snackbar = Snackbar.make(Objects.requireNonNull(getActivity()).findViewById(android.R.id.content),
-                            "No movie liked", Snackbar.LENGTH_SHORT);
-                    snackbar.show();
-                }
-            }
-
         }
 
     }
