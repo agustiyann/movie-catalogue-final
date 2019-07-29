@@ -36,72 +36,36 @@ public class TvShowItem implements Parcelable {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getPoster() {
         return poster;
-    }
-
-    public void setPoster(String poster) {
-        this.poster = poster;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getFirstAirDate() {
         return firstAirDate;
-    }
-
-    public void setFirstAirDate(String firstAirDate) {
-        this.firstAirDate = firstAirDate;
     }
 
     public String getVoteAverage() {
         return voteAverage;
     }
 
-    public void setVoteAverage(String voteAverage) {
-        this.voteAverage = voteAverage;
-    }
-
     public String getPopularity() {
         return popularity;
-    }
-
-    public void setPopularity(String popularity) {
-        this.popularity = popularity;
     }
 
     public String getOriginalLanguage() {
         return originalLanguage;
     }
 
-    public void setOriginalLanguage(String originalLanguage) {
-        this.originalLanguage = originalLanguage;
-    }
-
     public String getOriginalName() {
         return originalName;
     }
 
-    public void setOriginalName(String originalName) {
-        this.originalName = originalName;
-    }
-
     public String getOverview() {
         return overview;
-    }
-
-    public void setOverview(String overview) {
-        this.overview = overview;
     }
 
     public TvShowItem (JSONObject object) {
@@ -139,9 +103,6 @@ public class TvShowItem implements Parcelable {
         dest.writeString(this.originalLanguage);
         dest.writeString(this.originalName);
         dest.writeString(this.overview);
-    }
-
-    public TvShowItem() {
     }
 
     private TvShowItem(Parcel in) {

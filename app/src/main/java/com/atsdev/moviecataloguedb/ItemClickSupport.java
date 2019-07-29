@@ -18,22 +18,21 @@ public class ItemClickSupport {
         }
     };
 
-    private final RecyclerView.OnChildAttachStateChangeListener mAttachListener = new RecyclerView.OnChildAttachStateChangeListener() {
-        @Override
-        public void onChildViewAttachedToWindow(@NonNull View view) {
-            if (mOnItemClickListener != null) {
-                view.setOnClickListener(mOnClickListener);
-            }
-        }
-
-        @Override
-        public void onChildViewDetachedFromWindow(@NonNull View view) {
-        }
-    };
-
     private ItemClickSupport(RecyclerView recyclerView) {
         mRecyclerView = recyclerView;
         mRecyclerView.setTag(R.id.item_click_support, this);
+        RecyclerView.OnChildAttachStateChangeListener mAttachListener = new RecyclerView.OnChildAttachStateChangeListener() {
+            @Override
+            public void onChildViewAttachedToWindow(@NonNull View view) {
+                if (mOnItemClickListener != null) {
+                    view.setOnClickListener(mOnClickListener);
+                }
+            }
+
+            @Override
+            public void onChildViewDetachedFromWindow(@NonNull View view) {
+            }
+        };
         mRecyclerView.addOnChildAttachStateChangeListener(mAttachListener);
     }
 

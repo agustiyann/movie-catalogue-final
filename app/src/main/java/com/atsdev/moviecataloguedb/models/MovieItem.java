@@ -36,72 +36,36 @@ public class MovieItem implements Parcelable {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getPoster() {
         return poster;
-    }
-
-    public void setPoster(String poster) {
-        this.poster = poster;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getRelease() {
         return release;
-    }
-
-    public void setRelease(String release) {
-        this.release = release;
     }
 
     public String getVoteAverage() {
         return voteAverage;
     }
 
-    public void setVoteAverage(String voteAverage) {
-        this.voteAverage = voteAverage;
-    }
-
     public String getPopularity() {
         return popularity;
-    }
-
-    public void setPopularity(String popularity) {
-        this.popularity = popularity;
     }
 
     public String getOriginalLanguage() {
         return originalLanguage;
     }
 
-    public void setOriginalLanguage(String originalLanguage) {
-        this.originalLanguage = originalLanguage;
-    }
-
     public String getOriginalTitle() {
         return originalTitle;
     }
 
-    public void setOriginalTitle(String originalTitle) {
-        this.originalTitle = originalTitle;
-    }
-
     public String getOverview() {
         return overview;
-    }
-
-    public void setOverview(String overview) {
-        this.overview = overview;
     }
 
     public MovieItem (JSONObject object) {
@@ -139,9 +103,6 @@ public class MovieItem implements Parcelable {
         dest.writeString(this.originalLanguage);
         dest.writeString(this.originalTitle);
         dest.writeString(this.overview);
-    }
-
-    public MovieItem() {
     }
 
     private MovieItem(Parcel in) {
