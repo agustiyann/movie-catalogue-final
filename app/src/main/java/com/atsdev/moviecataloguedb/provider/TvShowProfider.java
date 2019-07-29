@@ -11,7 +11,7 @@ import com.atsdev.moviecataloguedb.database.TvHelper;
 
 import java.util.Objects;
 
-import static com.atsdev.moviecataloguedb.database.DatabaseContract.AUTHORITY;
+import static com.atsdev.moviecataloguedb.database.DatabaseContract.AUTHORITY_TV;
 import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.CONTENT_URI_TV;
 import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.TABLE_NAME_TV;
 
@@ -24,8 +24,8 @@ public class TvShowProfider extends ContentProvider {
 
     static {
 
-        sUriMatcher.addURI(AUTHORITY, TABLE_NAME_TV, TV_SHOW);
-        sUriMatcher.addURI(AUTHORITY,
+        sUriMatcher.addURI(AUTHORITY_TV, TABLE_NAME_TV, TV_SHOW);
+        sUriMatcher.addURI(AUTHORITY_TV,
                 TABLE_NAME_TV + "/#",
                 TV_SHOW_ID);
     }

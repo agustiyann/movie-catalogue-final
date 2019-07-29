@@ -9,6 +9,8 @@ public class DatabaseContract {
     public static final String AUTHORITY = "com.atsdev.moviecataloguedb";
     private static final String SCHEME = "content";
 
+    public static final String AUTHORITY_TV = "com.atsdev.moviecataloguedb.tvshow";
+
     public static final class MovieColumns implements BaseColumns {
 
         public static final String TABLE_NAME = "favorite";
@@ -46,7 +48,7 @@ public class DatabaseContract {
         public static final String BLUR_IMAGE_TV = "blur";
 
         public static final Uri CONTENT_URI_TV = new Uri.Builder().scheme(SCHEME)
-                .authority(AUTHORITY)
+                .authority(AUTHORITY_TV)
                 .appendPath(TABLE_NAME_TV)
                 .build();
     }

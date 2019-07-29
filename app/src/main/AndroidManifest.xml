@@ -11,6 +11,13 @@
         android:name="com.atsdev.moviecataloguedb.WRITE_DATABASE"
         android:protectionLevel="normal" />
 
+    <permission
+        android:name="com.atsdev.moviecataloguedb.tvshow.READ_DATABASE_TV"
+        android:protectionLevel="normal" />
+    <permission
+        android:name="com.atsdev.moviecataloguedb.tvshow.WRITE_DATABASE_TV"
+        android:protectionLevel="normal" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -30,10 +37,10 @@
 
         <provider
             android:name=".provider.TvShowProfider"
-            android:authorities="com.atsdev.moviecataloguedb"
+            android:authorities="com.atsdev.moviecataloguedb.tvshow"
             android:exported="true"
-            android:readPermission="com.atsdev.moviecataloguedb.READ_DATABASE"
-            android:writePermission="com.atsdev.moviecataloguedb.WRITE_DATABASE" />
+            android:readPermission="com.atsdev.moviecataloguedb.tvshow.READ_DATABASE_TV"
+            android:writePermission="com.atsdev.moviecataloguedb.tvshow.WRITE_DATABASE_TV" />
 
         <activity android:name=".MainActivity">
             <intent-filter>

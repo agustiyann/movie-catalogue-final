@@ -16,6 +16,17 @@ import static com.atsdev.moviecataloguedb.database.DatabaseContract.MovieColumns
 import static com.atsdev.moviecataloguedb.database.DatabaseContract.MovieColumns.TITLE;
 import static com.atsdev.moviecataloguedb.database.DatabaseContract.MovieColumns.VOTE;
 import static com.atsdev.moviecataloguedb.database.DatabaseContract.MovieColumns.KEY_ID;
+import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.BLUR_IMAGE_TV;
+import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.KEY_ID_TV;
+import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.ORIGINAL_LANGUAGE_TV;
+import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.ORIGINAL_TITLE_TV;
+import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.OVERVIEW_TV;
+import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.POPULARITY_TV;
+import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.POSTER_TV;
+import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.RELEASE_DATE_TV;
+import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.TABLE_NAME_TV;
+import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.TITLE_TV;
+import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.VOTE_TV;
 
 class DatabaseMovieHelper extends SQLiteOpenHelper {
 
@@ -37,8 +48,21 @@ class DatabaseMovieHelper extends SQLiteOpenHelper {
                 BLUR_IMAGE + " text not null, " +
                 ORIGINAL_TITLE + " text not null " +
                 " ); " ;
-        db.execSQL(CREATE_TABLE_MOVIE
-        );
+        db.execSQL(CREATE_TABLE_MOVIE);
+
+        String CREATE_TABLE_TV ="create table " + TABLE_NAME_TV + " ( " +
+                KEY_ID_TV + " integer primary key autoincrement, " +
+                TITLE_TV + " text not null, " +
+                OVERVIEW_TV + " text not null, " +
+                POSTER_TV + " text not null, " +
+                POPULARITY_TV + " text not null, " +
+                ORIGINAL_LANGUAGE_TV + " text not null, " +
+                RELEASE_DATE_TV + " text not null, " +
+                VOTE_TV + " text not null, " +
+                BLUR_IMAGE_TV + " text not null, " +
+                ORIGINAL_TITLE_TV + " text not null " +
+                " ); " ;
+        db.execSQL(CREATE_TABLE_TV);
     }
 
     public DatabaseMovieHelper(Context context) {
@@ -48,6 +72,7 @@ class DatabaseMovieHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS "+ TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS "+ TABLE_NAME_TV);
         onCreate(db);
     }
 }
