@@ -1,20 +1,17 @@
 package com.atsdev.moviecataloguedb;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.provider.Settings;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.atsdev.moviecataloguedb.fragments.FavoriteFragment;
 import com.atsdev.moviecataloguedb.fragments.MovieFragment;
 import com.atsdev.moviecataloguedb.fragments.TvShowFragment;
-
-import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -144,7 +144,7 @@ public class TvShowItem implements Parcelable {
     public TvShowItem() {
     }
 
-    protected TvShowItem(Parcel in) {
+    private TvShowItem(Parcel in) {
         this.id = in.readInt();
         this.poster = in.readString();
         this.name = in.readString();

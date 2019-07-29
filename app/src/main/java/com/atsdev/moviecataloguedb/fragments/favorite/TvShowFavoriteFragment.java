@@ -96,8 +96,4 @@ public class TvShowFavoriteFragment extends Fragment {
 
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
 }

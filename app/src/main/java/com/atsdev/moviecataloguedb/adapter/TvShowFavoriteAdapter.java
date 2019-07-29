@@ -33,7 +33,7 @@ public class TvShowFavoriteAdapter extends RecyclerView.Adapter<TvShowFavoriteAd
     @NonNull
     @Override
     public CardViewViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_movie, null, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_movie, viewGroup, false);
         RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         view.setLayoutParams(layoutParams);
 
@@ -81,7 +81,7 @@ public class TvShowFavoriteAdapter extends RecyclerView.Adapter<TvShowFavoriteAd
         final TextView tvRelease;
         final TextView tvDescription;
 
-        public CardViewViewHolder(@NonNull View itemView) {
+        CardViewViewHolder(@NonNull View itemView) {
             super(itemView);
 
             imgTvShow = itemView.findViewById(R.id.img_item_photo);
