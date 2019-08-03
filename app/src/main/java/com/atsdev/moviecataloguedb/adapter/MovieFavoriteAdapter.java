@@ -72,7 +72,7 @@ public class MovieFavoriteAdapter extends RecyclerView.Adapter<MovieFavoriteAdap
         return cursor.getCount();
     }
 
-    public class CardViewViewHolder extends RecyclerView.ViewHolder {
+    class CardViewViewHolder extends RecyclerView.ViewHolder {
 
         final ImageView imgMovie;
         final TextView tvName;

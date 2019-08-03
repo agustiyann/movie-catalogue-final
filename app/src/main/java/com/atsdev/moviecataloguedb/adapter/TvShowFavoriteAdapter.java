@@ -71,7 +71,7 @@ public class TvShowFavoriteAdapter extends RecyclerView.Adapter<TvShowFavoriteAd
         return cursor.getCount();
     }
 
-    public class CardViewViewHolder extends RecyclerView.ViewHolder {
+    class CardViewViewHolder extends RecyclerView.ViewHolder {
 
         final ImageView imgTvShow;
         final TextView tvName;
