@@ -14,6 +14,8 @@ import com.atsdev.moviecataloguedb.models.TvShowItem;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
+import java.util.Objects;
+
 import jp.wasabeef.glide.transformations.BlurTransformation;
 
 import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.BLUR_IMAGE_TV;
@@ -58,7 +60,7 @@ public class DetailTvShowActivity extends AppCompatActivity {
 
         TvShowItem item = getIntent().getParcelableExtra(EXTRA_TVSHOW);
 
-        title.setText(item.getName());
+        title.setText(Objects.requireNonNull(item).getName());
         release.setText(item.getFirstAirDate());
         originalTitle.setText(item.getOriginalName());
         originalLanguage.setText(item.getOriginalLanguage());
@@ -106,7 +108,7 @@ public class DetailTvShowActivity extends AppCompatActivity {
         tvHelper = new TvHelper(this);
         tvHelper.open();
 
-        Cursor cursor = getContentResolver().query(Uri.parse(CONTENT_URI_TV + "/" + Isi.getId()),null,
+        Cursor cursor = getContentResolver().query(Uri.parse(CONTENT_URI_TV + "/" + Objects.requireNonNull(Isi).getId()),null,
                 null,
                 null,
                 null);
@@ -121,7 +123,7 @@ public class DetailTvShowActivity extends AppCompatActivity {
     private void FavoriteSave(){
         TvShowItem Isi = getIntent().getParcelableExtra("tvshow");
         ContentValues values = new ContentValues();
-        values.put(KEY_ID_TV, Isi.getId());
+        values.put(KEY_ID_TV, Objects.requireNonNull(Isi).getId());
         values.put(TITLE_TV, Isi.getName());
         values.put(POSTER_TV, Isi.getPoster());
         values.put(BLUR_IMAGE_TV, Isi.getPoster());
@@ -136,7 +138,7 @@ public class DetailTvShowActivity extends AppCompatActivity {
 
     private void FavoriteRemove(){
         TvShowItem Isi = getIntent().getParcelableExtra("tvshow");
-        getContentResolver().delete(Uri.parse(CONTENT_URI_TV + "/" + Isi.getId() ),null,
+        getContentResolver().delete(Uri.parse(CONTENT_URI_TV + "/" + Objects.requireNonNull(Isi).getId() ),null,
                 null);
     }
 }

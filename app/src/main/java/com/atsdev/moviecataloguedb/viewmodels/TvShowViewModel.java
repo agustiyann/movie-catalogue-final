@@ -14,6 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -42,13 +43,13 @@ public class TvShowViewModel extends ViewModel {
                     }
                     listTvShow.postValue(tvShowItems);
                 } catch (Exception e) {
-                    Log.d("Exception", e.getMessage());
+                    Log.d("Exception", Objects.requireNonNull(e.getMessage()));
                 }
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                Log.e("Failure", error.getMessage());
+                Log.e("Failure", Objects.requireNonNull(error.getMessage()));
             }
         });
     }

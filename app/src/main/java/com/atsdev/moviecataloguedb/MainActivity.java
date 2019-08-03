@@ -13,6 +13,8 @@ import com.atsdev.moviecataloguedb.fragments.FavoriteFragment;
 import com.atsdev.moviecataloguedb.fragments.MovieFragment;
 import com.atsdev.moviecataloguedb.fragments.TvShowFragment;
 
+import org.jetbrains.annotations.NotNull;
+
 public class MainActivity extends AppCompatActivity {
 
     private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -66,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NotNull MenuItem item) {
         if (item.getItemId() == R.id.action_change_settings){
             Intent mIntent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
             startActivity(mIntent);

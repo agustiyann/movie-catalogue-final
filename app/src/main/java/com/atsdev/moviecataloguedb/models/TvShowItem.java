@@ -8,6 +8,8 @@ import android.util.Log;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 
+import java.util.Objects;
+
 import static android.provider.BaseColumns._ID;
 import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.ORIGINAL_LANGUAGE_TV;
 import static com.atsdev.moviecataloguedb.database.DatabaseContract.TvShowColumns.ORIGINAL_TITLE_TV;
@@ -83,7 +85,7 @@ public class TvShowItem implements Parcelable {
             this.overview = object.getString("overview");
         } catch (Exception e) {
             e.printStackTrace();
-            Log.d("Error Data", e.getMessage());
+            Log.d("Error Data", Objects.requireNonNull(e.getMessage()));
         }
     }
 

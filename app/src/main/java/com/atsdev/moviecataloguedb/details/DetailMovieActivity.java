@@ -14,6 +14,8 @@ import com.atsdev.moviecataloguedb.models.MovieItem;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
+import java.util.Objects;
+
 import jp.wasabeef.glide.transformations.BlurTransformation;
 
 import static com.atsdev.moviecataloguedb.database.DatabaseContract.MovieColumns.BLUR_IMAGE;
@@ -58,7 +60,7 @@ public class DetailMovieActivity extends AppCompatActivity {
 
         MovieItem item = getIntent().getParcelableExtra(EXTRA_MOVIE);
 
-        title.setText(item.getTitle());
+        title.setText(Objects.requireNonNull(item).getTitle());
         release.setText(item.getRelease());
         originalTitle.setText(item.getOriginalTitle());
         originalLanguage.setText(item.getOriginalLanguage());
@@ -106,7 +108,7 @@ public class DetailMovieActivity extends AppCompatActivity {
         movieHelper = new MovieHelper(this);
         movieHelper.open();
 
-        Cursor cursor = getContentResolver().query(Uri.parse(CONTENT_URI + "/" + movie.getId()),null,
+        Cursor cursor = getContentResolver().query(Uri.parse(CONTENT_URI + "/" + Objects.requireNonNull(movie).getId()),null,
                 null,
                 null,
                 null);
@@ -121,7 +123,7 @@ public class DetailMovieActivity extends AppCompatActivity {
     private void FavoriteSave(){
         MovieItem movie = getIntent().getParcelableExtra("movie");
         ContentValues values = new ContentValues();
-        values.put(KEY_ID, movie.getId());
+        values.put(KEY_ID, Objects.requireNonNull(movie).getId());
         values.put(TITLE, movie.getTitle());
         values.put(POSTER, movie.getPoster());
         values.put(BLUR_IMAGE, movie.getPoster());
@@ -136,7 +138,7 @@ public class DetailMovieActivity extends AppCompatActivity {
 
     private void FavoriteRemove(){
         MovieItem movie = getIntent().getParcelableExtra("movie");
-        getContentResolver().delete(Uri.parse(CONTENT_URI + "/" + movie.getId() ),null,
+        getContentResolver().delete(Uri.parse(CONTENT_URI + "/" + Objects.requireNonNull(movie).getId() ),null,
                 null);
     }
 }
