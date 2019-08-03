@@ -18,7 +18,7 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.ViewHolder
 
     private final ArrayList<TvShowItem> tvData = new ArrayList<>();
 
-    public void setMovieData(ArrayList<TvShowItem> itemData) {
+    public void setTvData(ArrayList<TvShowItem> itemData) {
         tvData.clear();
         tvData.addAll(itemData);
         notifyDataSetChanged();
@@ -41,7 +41,7 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.ViewHolder
         return tvData.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
 
         final ImageView imgMovie;
         final TextView tvName;

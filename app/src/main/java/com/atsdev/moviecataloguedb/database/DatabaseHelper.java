@@ -65,7 +65,7 @@ class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_TV);
     }
 
-    public DatabaseHelper(Context context) {
+    DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
