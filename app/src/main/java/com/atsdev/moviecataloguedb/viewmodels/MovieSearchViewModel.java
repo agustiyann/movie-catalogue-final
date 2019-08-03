@@ -31,7 +31,7 @@ public class MovieSearchViewModel extends ViewModel {
     public void setSearchMovie() {
         AsyncHttpClient client = new AsyncHttpClient();
         final ArrayList<MovieItem> listMovieItem = new ArrayList<>();
-        String API_KEY = BuildConfig.TMDB_API_KEY;
+        String API_KEY = BuildConfig.TheMovieDBApi;
         String url = "https://api.themoviedb.org/3/search/movie?api_key=" + API_KEY + "&language=en-US" + "&query=" + movieName + "&page=1";
 
         client.get(url, new AsyncHttpResponseHandler() {

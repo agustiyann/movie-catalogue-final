@@ -1,9 +1,10 @@
 package com.atsdev.moviecataloguedb.viewmodels;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import android.util.Log;
 
 import com.atsdev.moviecataloguedb.BuildConfig;
 import com.atsdev.moviecataloguedb.models.MovieItem;
@@ -25,7 +26,7 @@ public class MovieViewModel extends ViewModel {
     public void setMovie() {
         AsyncHttpClient client = new AsyncHttpClient();
         final ArrayList<MovieItem> listMovieItem = new ArrayList<>();
-        String API_KEY = BuildConfig.TMDB_API_KEY;
+        String API_KEY = BuildConfig.TheMovieDBApi;
         String url = "https://api.themoviedb.org/3/discover/movie?api_key=" + API_KEY + "&language=en-US&page=1";
 
         client.get(url, new AsyncHttpResponseHandler() {
