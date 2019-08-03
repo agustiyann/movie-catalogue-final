@@ -23,4 +23,5 @@
     <string name="like">Suka</string>
     <string name="liked">Disukai</string>
     <string name="search">Cari</string>
+    <string name="movie_favorite">Movie Favorite</string>
 </resources>

@@ -22,7 +22,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
 
-import com.atsdev.moviecataloguedb.ItemClickSupport;
+import com.atsdev.moviecataloguedb.utils.ItemClickSupport;
 import com.atsdev.moviecataloguedb.R;
 import com.atsdev.moviecataloguedb.adapter.TvShowAdapter;
 import com.atsdev.moviecataloguedb.details.DetailTvShowActivity;

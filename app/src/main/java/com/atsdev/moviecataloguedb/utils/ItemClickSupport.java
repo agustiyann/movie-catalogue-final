@@ -1,8 +1,10 @@
-package com.atsdev.moviecataloguedb;
+package com.atsdev.moviecataloguedb.utils;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
+
+import com.atsdev.moviecataloguedb.R;
 
 public class ItemClickSupport {
     private final RecyclerView mRecyclerView;
