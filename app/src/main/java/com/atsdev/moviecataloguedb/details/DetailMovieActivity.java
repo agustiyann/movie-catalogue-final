@@ -1,6 +1,8 @@
 package com.atsdev.moviecataloguedb.details;
 
 import android.content.ContentValues;
+import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 import com.atsdev.moviecataloguedb.R;
 import com.atsdev.moviecataloguedb.database.MovieHelper;
 import com.atsdev.moviecataloguedb.models.MovieItem;
+import com.atsdev.moviecataloguedb.widget.ImageBannerWidget;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
@@ -134,11 +137,19 @@ public class DetailMovieActivity extends AppCompatActivity {
         values.put(VOTE, movie.getVoteAverage());
         values.put(RELEASE_DATE, movie.getRelease());
         getContentResolver().insert(CONTENT_URI, values);
+        updateWidget(this);
     }
 
     private void FavoriteRemove(){
         MovieItem movie = getIntent().getParcelableExtra("movie");
         getContentResolver().delete(Uri.parse(CONTENT_URI + "/" + Objects.requireNonNull(movie).getId() ),null,
                 null);
+        updateWidget(this);
+    }
+
+    public static void updateWidget(Context context){
+        Intent intent = new Intent(context, ImageBannerWidget.class);
+        intent.setAction(ImageBannerWidget.UPDATE_WIDGET);
+        context.sendBroadcast(intent);
     }
 }

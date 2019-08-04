@@ -1,9 +1,11 @@
 package com.atsdev.moviecataloguedb.widget;
 
+import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.os.Binder;
 import android.os.Bundle;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
@@ -19,74 +21,83 @@ import static com.atsdev.moviecataloguedb.database.DatabaseContract.MovieColumns
 
 public class StackRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
 
-    private Context mContext;
-    private Cursor list;
+    private Context context;
+    private Cursor cursor;
 
-    StackRemoteViewsFactory(Context mContext) {
-        this.mContext = mContext;
+    StackRemoteViewsFactory(Context mContext, Intent intent) {
+        this.context = mContext;
+        int mAppWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
     }
 
     @Override
     public void onCreate() {
-        list = mContext.getContentResolver().query(
-                CONTENT_URI,
-                null,
-                null,
-                null,
-                null
-        );
+
     }
 
     @Override
     public void onDataSetChanged() {
-
+        if (cursor != null) {
+            cursor.close();
+        }
+        final long identityToken = Binder.clearCallingIdentity();
+        cursor = context.getContentResolver().query(
+                CONTENT_URI, null, null, null, null);
+        Binder.restoreCallingIdentity(identityToken);
     }
 
     @Override
     public void onDestroy() {
-
+        if (cursor != null) {
+            cursor.close();
+        }
     }
 
     @Override
     public int getCount() {
-        return list.getCount();
+        if (cursor != null) {
+            return cursor.getCount();
+        } else {
+            return 0;
+        }
     }
 
     @Override
     public RemoteViews getViewAt(int i) {
-        MovieItem item = getItem(i);
-        RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.favorite_widget);
+        if (getCount() > 0) {
+            MovieItem item = getItem(i);
+            RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.favorite_widget);
+            try {
+                Bitmap bitmap = Glide.with(context)
+                        .asBitmap()
+                        .load(item.getPoster())
+                        .submit(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
+                        .get();
 
-        Bitmap bitmap = null;
-        try {
-            bitmap = Glide.with(mContext)
-                    .asBitmap()
-                    .load(item.getPoster())
-                    .submit(512, 512)
-                    .get();
+                remoteViews.setImageViewBitmap(R.id.imageView, bitmap);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
 
-            remoteViews.setImageViewBitmap(R.id.imageView, bitmap);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
+            Bundle extras = new Bundle();
+            extras.putInt(ImageBannerWidget.EXTRA_ITEM, i);
+            Intent fillInIntent = new Intent();
+            fillInIntent.putExtras(extras);
+
+            remoteViews.setOnClickFillInIntent(R.id.imageView, fillInIntent);
+            return remoteViews;
+        } else {
+            return new RemoteViews(context.getPackageName(), R.layout.favorite_widget);
         }
-
-        Bundle extras = new Bundle();
-        extras.putInt(ImageBannerWidget.EXTRA_ITEM, i);
-        Intent fillInIntent = new Intent();
-        fillInIntent.putExtras(extras);
-
-        remoteViews.setOnClickFillInIntent(R.id.imageView, fillInIntent);
-        return remoteViews;
     }
 
     private MovieItem getItem(int position) {
-        if (!list.moveToPosition(position)) {
+        if (cursor.moveToPosition(position)) {
+            return new MovieItem(cursor);
+        } else {
             throw new IllegalStateException("Position invalid!");
         }
-
-        return new MovieItem(list);
     }
 
     @Override
@@ -101,11 +112,11 @@ public class StackRemoteViewsFactory implements RemoteViewsService.RemoteViewsFa
 
     @Override
     public long getItemId(int i) {
-        return 0;
+        return cursor.moveToPosition(i) ? cursor.getLong(0) : i;
     }
 
     @Override
     public boolean hasStableIds() {
-        return false;
+        return true;
     }
 }

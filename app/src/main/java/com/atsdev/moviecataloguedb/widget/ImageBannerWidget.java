@@ -12,8 +12,6 @@ import android.widget.Toast;
 
 import com.atsdev.moviecataloguedb.R;
 
-import java.util.Objects;
-
 public class ImageBannerWidget extends AppWidgetProvider {
 
     private static final String TOAST_ACTION = "com.atsdev.moviecataloguedb.TOAST_ACTION";
@@ -42,21 +40,22 @@ public class ImageBannerWidget extends AppWidgetProvider {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        super.onReceive(context, intent);
 
         if(intent.getAction() != null){
             if(intent.getAction().equals(TOAST_ACTION)){
-                String title = intent.getStringExtra(EXTRA_ITEM);
-                Toast.makeText(context, "Favorite: " + title, Toast.LENGTH_SHORT).show();
+                int viewIndex = intent.getIntExtra(EXTRA_ITEM, 0);
+                Toast.makeText(context, "Chosed layer " + viewIndex, Toast.LENGTH_SHORT).show();
             }
         }
 
-        if(Objects.equals(intent.getAction(), UPDATE_WIDGET)){
+        if(intent.getAction().equals(UPDATE_WIDGET)){
             AppWidgetManager manager = AppWidgetManager.getInstance(context);
             int[] ids = manager.getAppWidgetIds(new ComponentName(context, ImageBannerWidget.class));
 
             manager.notifyAppWidgetViewDataChanged(ids, R.id.stack_view);
         }
+
+        super.onReceive(context, intent);
     }
 
     @Override
