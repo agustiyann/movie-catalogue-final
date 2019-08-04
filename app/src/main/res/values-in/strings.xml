@@ -23,5 +23,7 @@
     <string name="like">Suka</string>
     <string name="liked">Disukai</string>
     <string name="search">Cari</string>
-    <string name="movie_favorite">Movie Favorite</string>
+    <string name="movie_favorite">Film Favorit</string>
+    <string name="empty_content">Tidak ada konten</string>
+    <string name="widget">Widget</string>
 </resources>

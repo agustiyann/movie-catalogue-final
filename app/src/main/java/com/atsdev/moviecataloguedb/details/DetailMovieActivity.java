@@ -147,7 +147,7 @@ public class DetailMovieActivity extends AppCompatActivity {
         updateWidget(this);
     }
 
-    public static void updateWidget(Context context){
+    private static void updateWidget(Context context){
         Intent intent = new Intent(context, ImageBannerWidget.class);
         intent.setAction(ImageBannerWidget.UPDATE_WIDGET);
         context.sendBroadcast(intent);

@@ -12,13 +12,15 @@ import android.widget.Toast;
 
 import com.atsdev.moviecataloguedb.R;
 
+import java.util.Objects;
+
 public class ImageBannerWidget extends AppWidgetProvider {
 
     private static final String TOAST_ACTION = "com.atsdev.moviecataloguedb.TOAST_ACTION";
     public static final String EXTRA_ITEM = "com.atsdev.moviecataloguedb.EXTRA_ITEM";
     public static final String UPDATE_WIDGET = "update_widget";
 
-    static void setUpdateWidget(Context context, AppWidgetManager appWidgetManager, int appWidgetId) {
+    private static void setUpdateWidget(Context context, AppWidgetManager appWidgetManager, int appWidgetId) {
 
         Intent intent = new Intent(context, StackWidgetService.class);
         intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
@@ -48,7 +50,7 @@ public class ImageBannerWidget extends AppWidgetProvider {
             }
         }
 
-        if(intent.getAction().equals(UPDATE_WIDGET)){
+        if(Objects.requireNonNull(intent.getAction()).equals(UPDATE_WIDGET)){
             AppWidgetManager manager = AppWidgetManager.getInstance(context);
             int[] ids = manager.getAppWidgetIds(new ComponentName(context, ImageBannerWidget.class));
 

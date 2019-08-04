@@ -1,6 +1,5 @@
 package com.atsdev.moviecataloguedb.widget;
 
-import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -19,14 +18,13 @@ import java.util.concurrent.ExecutionException;
 
 import static com.atsdev.moviecataloguedb.database.DatabaseContract.MovieColumns.CONTENT_URI;
 
-public class StackRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
+class StackRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
 
-    private Context context;
+    private final Context context;
     private Cursor cursor;
 
-    StackRemoteViewsFactory(Context mContext, Intent intent) {
+    StackRemoteViewsFactory(Context mContext) {
         this.context = mContext;
-        int mAppWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
     }
 
     @Override

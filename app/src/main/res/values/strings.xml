@@ -25,4 +25,5 @@
     <string name="search">Search</string>
     <string name="movie_favorite">Movie Favorite</string>
     <string name="empty_content">No Content</string>
+    <string name="widget">Widget</string>
 </resources>

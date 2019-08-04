@@ -9,8 +9,7 @@
         android:orientation="vertical"
         android:weightSum="10">
 
-        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/banner_text"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -23,7 +22,7 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <StackView xmlns:android="http://schemas.android.com/apk/res/android"
+        <StackView
             android:id="@+id/stack_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,7 +31,7 @@
 
     </LinearLayout>
 
-    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    <TextView
         android:id="@+id/empty_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
