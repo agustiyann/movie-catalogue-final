@@ -10,7 +10,6 @@
     <permission
         android:name="com.atsdev.moviecataloguedb.WRITE_DATABASE"
         android:protectionLevel="normal" />
-
     <permission
         android:name="com.atsdev.moviecataloguedb.tvshow.READ_DATABASE_TV"
         android:protectionLevel="normal" />
@@ -25,6 +24,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".utils.SettingActivity"></activity>
         <activity android:name=".details.DetailTvShowActivity" />
         <activity android:name=".details.DetailMovieActivity" />
 
@@ -34,7 +34,6 @@
             android:exported="true"
             android:readPermission="com.atsdev.moviecataloguedb.READ_DATABASE"
             android:writePermission="com.atsdev.moviecataloguedb.WRITE_DATABASE" />
-
         <provider
             android:name=".provider.TvShowProfider"
             android:authorities="com.atsdev.moviecataloguedb.tvshow"

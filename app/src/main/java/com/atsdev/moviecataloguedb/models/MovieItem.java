@@ -107,6 +107,8 @@ public class MovieItem implements Parcelable {
         dest.writeString(this.overview);
     }
 
+    public MovieItem() {}
+
     private MovieItem(Parcel in) {
         this.id = in.readInt();
         this.poster = in.readString();

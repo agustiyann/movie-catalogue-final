@@ -26,4 +26,11 @@
     <string name="movie_favorite">Movie Favorite</string>
     <string name="empty_content">No Content</string>
     <string name="widget">Widget</string>
+    <string name="daily_notification">Daily notifications on or off</string>
+    <string name="release_reminder">Release today reminder on or off</string>
+    <string name="notification_settings">Notification settings</string>
+    <string name="daily_reminder_notif_text">Back with us explore the best movies!</string>
+    <string name="daily_reminder_notif_title">Movie CatalogueDB</string>
+    <string name="release_today_title">New Movie Detected!</string>
+    <string name="has_release_string">has released just now!</string>
 </resources>

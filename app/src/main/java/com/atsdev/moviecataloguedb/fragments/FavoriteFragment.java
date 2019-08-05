@@ -71,12 +71,12 @@ public class FavoriteFragment extends Fragment {
         final int mNumOfTabs;
 
         PagerAdapter(FragmentManager fm, int NumOfTabs) {
-            super(fm);
+            super(fm, FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
             this.mNumOfTabs = NumOfTabs;
         }
 
 
-
+        @NotNull
         @Override
         public Fragment getItem(int position) {
 

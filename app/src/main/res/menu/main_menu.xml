@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
-        android:id="@+id/action_change_settings"
-        android:orderInCategory="100"
+        android:id="@+id/language_settings"
         app:showAsAction="never"
         android:title="@string/change_language_settings" />
+
+    <item
+        android:id="@+id/action_notification_settings"
+        app:showAsAction="never"
+        android:title="@string/notification_settings" />
 
 </menu>
