@@ -112,9 +112,9 @@ public class MainActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.language_settings){
             Intent mIntent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
             startActivity(mIntent);
-        } else {
-            Intent intent2 = new Intent(this, SettingActivity.class);
-            startActivity(intent2);
+        } else if (item.getItemId() == R.id.action_notification_settings){
+            Intent intent = new Intent(this, SettingActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

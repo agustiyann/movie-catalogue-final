@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.atsdev.moviecataloguedb.R;
 
+import java.util.Objects;
+
 import static com.atsdev.moviecataloguedb.MainActivity.cancelAlarm;
 import static com.atsdev.moviecataloguedb.MainActivity.setAlarmDaily;
 import static com.atsdev.moviecataloguedb.MainActivity.setAlarmRelease;
@@ -19,6 +21,8 @@ public class SettingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.notification_settings));
+
         Switch dailySwitch = findViewById(R.id.switch_daily);
         Switch latestSwitch = findViewById(R.id.switch_latest);
 
