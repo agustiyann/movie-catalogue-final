@@ -1,25 +1,7 @@
 package com.atsdev.moviefavoriteapp.entity;
 
-import android.database.Cursor;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
-
-import org.json.JSONObject;
-
-import java.util.Objects;
-
-import static android.provider.BaseColumns._ID;
-import static com.atsdev.moviefavoriteapp.database.DatabaseContract.MovieColumns.ORIGINAL_LANGUAGE;
-import static com.atsdev.moviefavoriteapp.database.DatabaseContract.MovieColumns.ORIGINAL_TITLE;
-import static com.atsdev.moviefavoriteapp.database.DatabaseContract.MovieColumns.OVERVIEW;
-import static com.atsdev.moviefavoriteapp.database.DatabaseContract.MovieColumns.POPULARITY;
-import static com.atsdev.moviefavoriteapp.database.DatabaseContract.MovieColumns.POSTER;
-import static com.atsdev.moviefavoriteapp.database.DatabaseContract.MovieColumns.RELEASE_DATE;
-import static com.atsdev.moviefavoriteapp.database.DatabaseContract.MovieColumns.TITLE;
-import static com.atsdev.moviefavoriteapp.database.DatabaseContract.MovieColumns.VOTE;
-import static com.atsdev.moviefavoriteapp.database.DatabaseContract.getColumnInt;
-import static com.atsdev.moviefavoriteapp.database.DatabaseContract.getColumnString;
 
 public class MovieItem implements Parcelable {
 
@@ -32,10 +14,6 @@ public class MovieItem implements Parcelable {
     private String originalLanguage;
     private String originalTitle;
     private String overview;
-
-    public int getId() {
-        return id;
-    }
 
     public void setId(int id) {
         this.id = id;
@@ -65,32 +43,16 @@ public class MovieItem implements Parcelable {
         this.release = release;
     }
 
-    public String getVoteAverage() {
-        return voteAverage;
-    }
-
     public void setVoteAverage(String voteAverage) {
         this.voteAverage = voteAverage;
-    }
-
-    public String getPopularity() {
-        return popularity;
     }
 
     public void setPopularity(String popularity) {
         this.popularity = popularity;
     }
 
-    public String getOriginalLanguage() {
-        return originalLanguage;
-    }
-
     public void setOriginalLanguage(String originalLanguage) {
         this.originalLanguage = originalLanguage;
-    }
-
-    public String getOriginalTitle() {
-        return originalTitle;
     }
 
     public void setOriginalTitle(String originalTitle) {
@@ -103,25 +65,6 @@ public class MovieItem implements Parcelable {
 
     public void setOverview(String overview) {
         this.overview = overview;
-    }
-
-    public MovieItem(JSONObject object) {
-
-        try {
-            this.id = object.getInt("id");
-            String image = object.getString("poster_path");
-            this.poster = "https://image.tmdb.org/t/p/w185/" + image;
-            this.title = object.getString("title");
-            this.release = object.getString("release_date");
-            this.voteAverage = object.getString("vote_average");
-            this.popularity = object.getString("popularity");
-            this.originalLanguage = object.getString("original_language");
-            this.originalTitle = object.getString("original_title");
-            this.overview = object.getString("overview");
-        } catch (Exception e) {
-            e.printStackTrace();
-            Log.d("Error Data", Objects.requireNonNull(e.getMessage()));
-        }
     }
 
     @Override
@@ -181,17 +124,5 @@ public class MovieItem implements Parcelable {
                 ",original_title = '" + originalTitle + "" +
                 ",overview = '" + overview + "" +
                 "}";
-    }
-
-    public MovieItem(Cursor cursor) {
-        this.id = getColumnInt(cursor, _ID);
-        this.poster = getColumnString(cursor, POSTER);
-        this.title = getColumnString(cursor, TITLE);
-        this.release = getColumnString(cursor, RELEASE_DATE);
-        this.voteAverage = getColumnString(cursor, VOTE);
-        this.popularity = getColumnString(cursor, POPULARITY);
-        this.originalLanguage = getColumnString(cursor, ORIGINAL_LANGUAGE);
-        this.originalTitle = getColumnString(cursor, ORIGINAL_TITLE);
-        this.overview = getColumnString(cursor, OVERVIEW);
     }
 }

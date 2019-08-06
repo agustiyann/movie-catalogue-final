@@ -33,4 +33,6 @@
     <string name="daily_reminder_notif_title">Movie CatalogueDB</string>
     <string name="release_today_title">New Movie Detected!</string>
     <string name="has_release_string">has released just now!</string>
+    <string name="dicoding_icon">dicoding icon</string>
+    <string name="google_developers_icon">google developers icon</string>
 </resources>

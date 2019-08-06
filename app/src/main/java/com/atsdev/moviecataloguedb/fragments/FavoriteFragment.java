@@ -1,6 +1,7 @@
 package com.atsdev.moviecataloguedb.fragments;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import com.google.android.material.tabs.TabLayout;
 import androidx.fragment.app.Fragment;
@@ -70,6 +71,7 @@ public class FavoriteFragment extends Fragment {
     class PagerAdapter extends FragmentStatePagerAdapter {
         final int mNumOfTabs;
 
+        @SuppressLint("WrongConstant")
         PagerAdapter(FragmentManager fm, int NumOfTabs) {
             super(fm, FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
             this.mNumOfTabs = NumOfTabs;

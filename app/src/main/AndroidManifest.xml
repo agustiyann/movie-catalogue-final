@@ -3,6 +3,9 @@
     package="com.atsdev.moviecataloguedb">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
     <permission
         android:name="com.atsdev.moviecataloguedb.READ_DATABASE"
@@ -24,6 +27,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".SplashScreen"
+            android:theme="@style/NoActionBarTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".utils.SettingActivity" />
         <activity android:name=".details.DetailTvShowActivity" />
         <activity android:name=".details.DetailMovieActivity" />
@@ -41,13 +52,7 @@
             android:readPermission="com.atsdev.moviecataloguedb.tvshow.READ_DATABASE_TV"
             android:writePermission="com.atsdev.moviecataloguedb.tvshow.WRITE_DATABASE_TV" />
 
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainActivity" />
 
         <receiver android:name=".widget.ImageBannerWidget">
             <intent-filter>
