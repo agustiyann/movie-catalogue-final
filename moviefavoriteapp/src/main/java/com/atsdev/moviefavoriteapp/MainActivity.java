@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         rvMovie.setAdapter(movieAdapter);
     }
 
-    private Observer<ArrayList<MovieItem>> getMovies = new Observer<ArrayList<MovieItem>>() {
+    private final Observer<ArrayList<MovieItem>> getMovies = new Observer<ArrayList<MovieItem>>() {
         @Override
         public void onChanged(ArrayList<MovieItem> movies) {
             if(movies != null){
