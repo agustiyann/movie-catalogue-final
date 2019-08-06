@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MovieFavoriteApp</string>
+    <string name="poster_image">Ini adalah poster</string>
+    <string name="movie_name">Movie Name</string>
+    <string name="release">1999–08–21</string>
+    <string name="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos eius enim est ex facere fugit minus odio officiis vel voluptates. Adipisci, aliquam consectetur impedit molestiae nesciunt officiis optio recusandae unde?</string>
+    <string name="change_language_settings">Ubah bahasa</string>
+</resources>
