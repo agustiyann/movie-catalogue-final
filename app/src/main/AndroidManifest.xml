@@ -64,6 +64,9 @@
                 android:resource="@xml/favorite_widget_info" />
         </receiver>
 
+        <receiver android:name=".notification.DailyReminderReceiver" />
+        <receiver android:name=".notification.ReleaseTodayReminderReceiver" />
+
         <service
             android:name=".widget.StackWidgetService"
             android:enabled="true"
