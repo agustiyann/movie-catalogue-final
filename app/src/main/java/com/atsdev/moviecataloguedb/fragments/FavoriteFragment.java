@@ -82,15 +82,10 @@ public class FavoriteFragment extends Fragment {
         @Override
         public Fragment getItem(int position) {
 
-            switch (position) {
-                case 0:
-                    return new MovieFavoriteFragment();
-
-                case 1:
-                    return new TvShowFavoriteFragment();
-
-                default:
-                    return null;
+            if (position == 0) {
+                return new MovieFavoriteFragment();
+            } else {
+                return  new TvShowFavoriteFragment();
             }
         }
 
