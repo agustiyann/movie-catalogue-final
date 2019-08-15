@@ -23,12 +23,19 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="240dp"
+            android:layout_height="100dp"
             android:background="@drawable/bw_gradient"
-            android:alpha="0.9"
+            app:layout_constraintBottom_toBottomOf="@+id/blur_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/bg_gradient_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/blur_image" />
 
         <ImageView
             android:id="@+id/poster_image"
